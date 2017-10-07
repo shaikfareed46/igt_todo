@@ -1,0 +1,22 @@
+<header class="header">
+  <h1>Todo App</h1>
+  <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title"><br/>
+  <div class="input-group date">
+    <input type="text" [(ngModel)]="newTodo.todoDateValue" placeholder="When to be done?" style="height: 60px" class="new-todo form-control input-sm" id="{{id}}" (focus)="open()" />
+    <span class="input-group-addon" (click)="open()">
+            <span class="glyphicon-calendar glyphicon"></span>
+    </span>
+  </div>
+  <div class="dp-popup" *ngIf="showDatepicker">
+    <datepicker [(ngModel)]="dt" [showWeeks]="true" [minDate]="minDate" (selectionDone)="onSelectionDone($event)"></datepicker>
+    <div class="clearfix">
+      <div class="pull-left">
+        <button type="button" class="btn btn-sm btn-primary" (click)="today()">Today</button>
+      </div>
+      <div class="pull-right">
+        <button type="button" class="btn btn-sm btn-danger" (click)="clear()">Clear</button>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-sm btn-primary todo-button" (click)="addTodo()">Add to Todo List</button>
+</header>

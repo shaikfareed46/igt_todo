@@ -1,0 +1,11 @@
+<section class="main" *ngIf="todos.length > 0">
+  <ul class="todo-list">
+    <h2 class="text-center"><u>Todo List</u></h2><br><br>
+    <li *ngFor="let todo of todos | sortByDate; let i = index" [class.odd]="i%2==0" [class.even]="i%2!=0" [class.completed]="todo.complete">
+      <app-todo-list-item
+        [todo]="todo"
+        (toggleComplete)="onToggleTodoComplete($event)"
+        (remove)="onRemoveTodo($event)"></app-todo-list-item>
+    </li>
+  </ul>
+</section>
